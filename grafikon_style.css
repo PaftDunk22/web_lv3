@@ -1,0 +1,155 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}
+
+dl {
+  width: 85%;
+  background: #f5f5f5;
+  padding: 10px;
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+.percentage {
+  display: flex;
+  align-items: center;
+  margin: 35px 0;
+  height: 30px;
+  color: #333;
+}
+
+.percentage .text {
+  padding-right: 10px;
+  font-weight: 600;
+  text-align: left;
+  width: 200px; 
+  color: #333;
+  font-size: 1.1em;
+}
+
+
+.percentage-bar-container {
+  position: relative;
+  width: 60%; 
+  background-color: #ddd;
+  height: 100%;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.percentage-bar {
+  background-color: #4caf50;
+  height: 100%;
+  width: 0%; 
+  border-radius: 5px;
+  animation: growBar 2s ease-out forwards;
+}
+
+@keyframes growBar {
+from {
+  width: 0%;
+}
+to {
+  width: var(--width); 
+}
+}
+
+footer {
+  margin-top: 30px;
+  padding: 10px;
+  background: #222;
+  color: white;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: flex-start; 
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu li {
+  margin: 0 15px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  display: block; 
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #c4c4c4;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Media Query for Responsive Navigation */
+@media (max-width: 768px) {
+  .nav-menu {
+      flex-direction: column;
+      text-align: left; /* Align the items to the left on smaller screens */
+  }
+}
+

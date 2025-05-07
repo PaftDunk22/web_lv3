@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="movies ranking">
+  <meta name="keywords" content="movies">
+  <link rel="stylesheet" href="grafikon_style.css">
+  <title>Movies Rating</title>
+</head>
+<body>
+  <header>
+    <h1>Movies</h1>
+  </header>
+  <nav>
+    <ul class="nav-menu">
+        <li><a href="index.html">Movies</a></li>
+    </ul>
+</nav>
+
+  <dl id="movie-list">
+    
+  </dl>
+
+  <footer>
+    <p>&copy; 2025. Web Programiranje. Sva prava pridržana.</p>
+  </footer>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+    
+    function loadCSV() {
+        fetch('movies.csv')
+            .then(response => response.text())
+            .then(data => {
+                const movies = parseCSV(data);
+                displayMovies(movies);
+            })
+            .catch(error => {
+                console.error('Error loading CSV:', error);
+            });
+    }
+
+    
+    function parseCSV(csv) {
+        const rows = csv.split('\n');
+        const movies = [];
+        rows.forEach(row => {
+            
+            if (row.trim() === '') return;
+
+            const columns = row.split(',');
+
+            
+            if (columns.length === 6) {
+                const movie = {
+                    title: columns[0].trim(),
+                    year: columns[1].trim(),
+                    genre: columns[2].trim(),
+                    duration: columns[3].trim(),
+                    rating: parseFloat(columns[4].trim()),  
+                    directors: columns[5].trim()
+                };
+
+                
+                if (!isNaN(movie.rating)) {
+                    movies.push(movie);
+                } else {
+                    console.warn(`Invalid rating for movie: ${movie.title}`);
+                }
+            } else {
+                console.warn('Skipping invalid row: ', row);
+            }
+        });
+        return movies;
+    }
+
+    
+    function displayMovies(movies) {
+        const movieList = document.getElementById('movie-list');
+        movieList.innerHTML = ''; 
+
+        movies.forEach(movie => {
+            const movieItem = document.createElement('dd');
+            movieItem.classList.add('percentage');
+
+            const text = document.createElement('span');
+            text.classList.add('text');
+            text.textContent = `${movie.title} (${movie.rating})`;
+
+            const barContainer = document.createElement('div');
+            barContainer.classList.add('percentage-bar-container');
+
+            const bar = document.createElement('div');
+            bar.classList.add('percentage-bar');
+            bar.style.setProperty('--width', `${(movie.rating / 10) * 100}%`); 
+
+            barContainer.appendChild(bar);
+            movieItem.appendChild(text);
+            movieItem.appendChild(barContainer);
+            movieList.appendChild(movieItem);
+        });
+    }
+
+    loadCSV();
+});
+
+
+
+  </script>
+</body>
+</html>

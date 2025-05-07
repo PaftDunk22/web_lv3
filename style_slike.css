@@ -1,0 +1,45 @@
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.galerija {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+}
+
+.galerija_slika {
+    text-align: center;
+    position: relative; 
+    transition: opacity 0.3s ease; 
+}
+
+
+.galerija_slika img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease, z-index 0s ease; 
+    cursor: pointer;
+    opacity: 1; 
+    z-index: 1; 
+    position: relative; 
+}
+
+
+.galerija_slika:hover img {
+    transform: scale(2); 
+    opacity: 1; 
+    z-index: 10; 
+}
+
+.galerija_slika:hover img:not(:hover) {
+    opacity: 0.2; 
+}

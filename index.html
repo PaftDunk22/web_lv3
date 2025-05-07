@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="movies ranking">
+    <meta name="keywords" content="movies">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <title>Movies</title>
+</head>
+<body>
+    <header>
+        <h1>Movies</h1>
+    </header>
+
+    <nav aria-labelledby="primarna-navigacija">
+        <ul>
+            <li><a href="grafikon.html">Grafikon</a></li>
+            <li><a href="slike.html">Galerija Slika</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Contact List</a>
+                <section class="dropdown-content">
+                    <a href="#">Contact 1</a>
+                    <a href="#">Contact 2</a>
+                    <a href="#">Contact 3</a>
+                </section>
+            </li>
+        </ul>
+    </nav>
+
+    <picture>
+        <source media="(min-width: 650px)" srcset="movies.jpg">
+        <source media="(min-width: 465px)" srcset="movies.jpg">
+        <img src="movies_mobile.png" alt="Various movies to be ranked">
+    </picture>
+
+    <h1>Popis Filmova</h1>
+
+    <section class="main">
+        <aside>
+            <img src="kurosawa.jpg" alt="Akira Kurosawa">
+        </aside>
+
+        <div id="filteri">
+            <select id="filter-genre">
+              <option value="">-- Odaberi žanr --</option>
+              <option value="Action">Action</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Animation">Animation</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Crime">Crime</option>
+              <option value="Drama">Drama</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Music">Music</option>
+              <option value="Romance">Romance</option>
+              <option value="Sci-Fi">Sci-Fi</option>
+              <option value="Thriller">Thriller</option>
+              <option value="Western">Western</option>
+            </select>
+            <input type="number" id="filter-year" placeholder="Godina od">
+            <input type="number" id="duration" placeholder="Trajanje filma (max)">
+            <input type="range" id="filter-rating" min="0" max="10" step="0.1" value="7">
+            <span id="rating-value">7</span>
+            <button id="primijeni-filtere">Filtriraj</button>
+        </div>
+
+        <table id="filmovi-tablica">
+            <thead>
+                <tr>
+                    <th>title</th>
+                    <th>year</th>
+                    <th>genre</th>
+                    <th>duration</th>
+                    <th>rating</th>
+                    <th>directors</th>
+                    <th>dodaj</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Košarica</h2>
+        <ul id="lista-kosarice"></ul>
+        <button id="potvrdi-kosaricu">Potvrdi</button>
+    </section>
+
+    <section aria-labelledby="movies I like"> 
+        <h2>Movies I like</h2>
+        <p>
+            Here are some of the movies I like:<br>
+            V for Vendetta <br>
+            Book of Eli <br>
+            Oldboy <br>
+            Parasite <br>
+            Memories of Murder <br>
+            Prestige <br>
+            Ghost in the Shell <br>
+            Akira <br>
+            ...and many more
+        </p>
+    </section>
+
+    <article>
+        <h2>Huge movie buff:</h2>
+        <p class="animation"> 
+            <img src="movie_buff.jpg" alt="Quentin Tarantino">
+        </p>
+    </article>
+
+    <footer>
+        <p>&copy; 2025. Web Programiranje. Sva prava pridržana.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
